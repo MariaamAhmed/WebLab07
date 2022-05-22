@@ -1,0 +1,213 @@
+<html>
+<head>
+<meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link href="style.css" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <div class="topnav">
+        <span style="font-family: Lucida Sans Unicode; font-style:bold; font-size:x-large;color:#dce9ee">LAB 07</span>
+      </div>
+</header>
+<div>
+  <h2 class="lineUp">TASK1</h2>
+  <h5> Write a javascript function that takes length, width, and height values of rectangle from user. The function should find the volume of rectangle using the function-currying.</h5>
+  <h5>SOLUTION :</h5>
+    <p>
+        function curriedVolume(l) {<br>
+            return (w) => {<br>
+                return (h) => {<br>
+                    return l * w* h<br>
+                }}} var length=prompt("Enter length: ");<br>
+        var width=prompt("Enter width: ");<br>
+        var height=prompt("Enter height: ")<br>
+
+        console.log(curriedVolume(length)(width)(height));<br>
+        <br>
+</p>
+<h5>OUTPUT:</h5>
+<img src="task1.png" style="width:375px;height:375px;">
+</div>
+  <div>
+    <h2 class="lineUp">TASK2</h2>
+    <h5>Create two functions “Profile” (outer function) and “greetingMsg” (inner function) that aims to implements the concept of Function-closure by generating an alert of greeting message with the help of user details provided in outer function.
+    </h5>
+    <h5>SOLUTION :</h5>
+      <p>
+        function arrayfunc() <br>
+{<br>
+    function Profile() { <br>
+        var message = "Hello Mr. Smith! Hope you have a wonderful day"; <br>
+        function greetingMsg() { <br>
+            alert(message); <br>
+        } <br>
+        return greetingMsg;} <br>
+    var greetingMsg = Profile(); <br>
+    greetingMsg();<br>
+    <br>
+  </p>
+  <h5>OUTPUT :</h5>
+  <img src="task2.png" style="height: 150px;width: 250px;">
+  </div>
+    <div>
+      <h2 class="lineUp"> TASK3</h2>
+      <h5>It's a general concept in mathematics where you combine two or more functions into a brand-new function. Write a javascript program to implement the given concept with the help of function-compose for the given function. f(g(x)).
+      </h5>
+      <h5>SOLUTION :</h5>
+        <p>
+            const compose = (disOnBill,Total) => tax => disOnBill(Total(tax));<br> 
+const Total = (x) => x + 500 //tax<br> 
+const disOnBill = (x) => x * 0.75 //25%<br> 
+const BillPaid = compose(disOnBill,Total)<br> 
+BillPaid(25000)<br> 
+<br>       
+    </p>
+    <h5>OUTPUT:</h5>
+    <img src="task3.png" style="height:100px; width:200px">
+    </div>
+      <div>
+        <h2 class="lineUp">TASK4</h2>
+        <h5>Write a javascript program  that uses  filter() to create a filtered array that has all elements with values less than 10 removed.      
+        </h5>
+        <h5>SOLUTION :</h5>
+          <p>
+            const array = [ 1, 3, 7, 5, 11,15,17,19,21];<br>
+const filterArray = array.filter(num => num > 10);<br>
+console.log(filterArray);<br>
+
+      </p>
+      <h5>OUTPUT:</h5>
+    <img src="task4.png" style="height:100px;width:200px;">
+      </div>
+      <div>
+      <h2 class="lineUp">TASK5</h2>
+      <h5>Creates an array consisting of only those elements that satisfy the condition checked by isPositive() function with the help of appropriate javascript advance loops concept.
+      <h5>SOLUTION :</h5>
+        <p>
+            const numbers = [175, -50, 25]; <br>   
+ numbers.filter(myFunc); <br>   
+function myFunc(num) { <br>   
+  return num > 0; <br>   
+}<br>        
+    </p>
+    <h5>OUTPUT:</h5>
+  <img src="task5.png" style=" width:200px;height:75px;">
+    </div>
+    <div>
+    <h2 class="lineUp">TASK6</h2>
+      <h5>Write a javascript program that implements the array.map() that aim to produces an array containing square roots of the numbers in the original array.
+        </h5>
+      <h5>SOLUTION :</h5>
+        <p>
+            const numbers = [1, 2, 3, 4, 5]; <br>
+
+const bigNumbers = numbers.map(number => {<br>
+  return number * 10;<br>
+});<br>
+bigNumbers<br>
+<br>              
+    </p>
+    <h5>OUTPUT:</h5>
+  <img src="task6.png" style="width:200px;height:75px;">
+    </div>
+    <div>
+    <h2 class="lineUp">TASK7</h2>
+    <h5>Create a class named 'Member' having the members: Name, Age, Salary. It also has a method named 'printSalary' which prints the salary of the members. Create child class 'Employee' that inherits the 'Member' class. The 'Employee' classes have data member  'department'. Now, assign name, age and salary to an employee by making an object of child class and print the same.     
+      </h5>
+    <h5>SOLUTION :</h5>
+      <p>
+        class Member{ <br>
+            constructor (name, age, salary){ <br>
+              this.name=name; <br>
+              this.age=age; <br>
+              this.salary=salary; <br>
+            } <br>
+          } <br>
+          
+          class Employee extends Member{ <br>
+            constructor(name, age, salary,department){ <br>
+              super(name, age,salary); <br>
+              this.department=department; } <br>
+              printEmpDetails(){ console.log(`The Employee details are :${this.name} , ${this.age},${this.salary},${this.department}`);} <br>
+            }
+          
+           const a = new Employee('ALI', 21, 25000, 'abc'); <br>
+           a.printEmpDetails();<br>
+                  
+  </p>
+  <h5>OUTPUT:</h5>
+<img src="task7.png" style="width:300px;height:100px;">
+  </div>
+  <div>
+  <h2 class="lineUp">TASK8</h2>
+    <h5>Write a javascript program to implement the concept of nullish coalesing operator by using the below object properties.
+        const response = {
+        data: {
+        name: 'Ronaldo',
+        occupation: null,
+        lies: 0
+        }
+        }
+         </h5>
+    <h5>SOLUTION :</h5>   
+    <p>
+        const response = {<br>
+            data: {<br>
+            name: 'Ronaldo',<br>
+            occupation: null,<br>
+            lies: 0<br>
+            }<br>
+            }<br>
+            const occupation2 = response?.data?.occupation || 'no occupation' ; <br>
+            console.log(occupation2);<br>                 
+  </p>
+  <h5>OUTPUT:</h5>
+<img src="task8.png" style="width:200px;height:70px;">   
+  </div>
+  <div>
+    <h2 class="lineUp">TASK9</h2>
+    <h5>Write a javascript program to create the Promise that resolve in 10 seconds and check the status by returning the “Promise is resolved successfully” string if the number is even otherwise reject the promise by returning the string “Promise is rejected”. Convert this task unto async await as well and compare the results
+         </h5>
+    <h5>SOLUTION :</h5>   
+    <p>
+        const promise = new Promise((resolve,reject)=>{<br>
+            let a =10000;<br>
+            if (a%2==0)<br>
+            {<br>
+                setTimeout(resolve,a,'promise is resolved')<br>
+            }<br>
+            else{<br>
+            
+                reject('promise is rejected')<br>
+            }<br>
+            }) <br>
+            promise.then((message)=> {console.log(message);}).catch((message)=> {console.log('oops error!'+message);})     <br>     
+  </p>
+  <h5>OUTPUT:</h5>
+<img src="task9t1.png" style="width:350px;height:70px;">   
+<p>
+     Using Async Await
+async function display(){<br>
+    const promise = new Promise((resolve,reject)=>{<br>
+        let a =10000;<br>
+        if (a%2==0)<br>
+        {<br>
+            setTimeout(resolve,a,'the promise is resolved')<br>
+        }<br>
+        else{<br>
+        
+            reject('the promise is rejected')<br>
+        }<br>
+        }) <br>
+        var response=await promise;console.log(response);<br>
+    }<br>
+    display();<br>
+</p>
+<h5>OUTPUT:</h5>
+<img src="task92.png" style="width:300px;height:70px;">   
+  </div>
+
+  </body>
+</html>
